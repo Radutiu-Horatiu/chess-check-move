@@ -1,7 +1,6 @@
 public class Pawn extends Piece {
 
-    public Pawn(boolean white)
-    {
+    public Pawn(boolean white) {
         super(white);
     }
 
@@ -12,29 +11,29 @@ public class Pawn extends Piece {
         int fromCol = start.getY();
         int toCol = end.getY();
 
-        if (toRow > 0 && toRow < 6 && toCol > 0 && toCol < 8)
+        if (!(toRow > 0 && toRow < 6 && toCol > 0 && toCol < 8))
             return false;
         // white pieces are one rows 6, 7
         else if (start.getPiece().isWhite()) {
             // simple one step move
-            if (fromRow == toRow - 1 && toCol == fromCol)
+            if (fromRow == toRow + 1 && toCol == fromCol && end.getPiece() == null)
                 return true;
             // from start 2 steps move
-            else if (fromRow == toRow - 2 && toCol == fromCol && fromRow == 6)
+            else if (fromRow == toRow + 2 && toCol == fromCol && fromRow == 6 && end.getPiece() == null)
                 return true;
             // pawn attacking on diagonal
-            else return fromRow == toRow - 1 && (fromCol == toCol - 1 || fromCol == toCol + 1) && end.getPiece() != null;
+            else return fromRow == toRow + 1 && (fromCol == toCol - 1 || fromCol == toCol + 1) && end.getPiece() != null;
         }
         // black pieces are on rows 1, 2
         else {
             // simple one step move
-            if (fromRow == toRow + 1 && toCol == fromCol)
+            if (fromRow == toRow -1 && toCol == fromCol && end.getPiece() == null)
                 return true;
                 // from start 2 steps move
-            else if (fromRow == toRow + 2 && toCol == fromCol && fromRow == 1)
+            else if (fromRow == toRow - 2 && toCol == fromCol && fromRow == 1 && end.getPiece() == null)
                 return true;
                 // pawn attacking on diagonal
-            else return fromRow == toRow + 1 && (fromCol == toCol - 1 || fromCol == toCol + 1) && end.getPiece() != null;
+            else return fromRow == toRow - 1 && (fromCol == toCol - 1 || fromCol == toCol + 1) && end.getPiece() != null;
         }
     }
 }

@@ -1,7 +1,6 @@
 public class Knight extends Piece {
 
-    public Knight(boolean white)
-    {
+    public Knight(boolean white) {
         super(white);
     }
 
@@ -12,8 +11,8 @@ public class Knight extends Piece {
         int fromCol = start.getY();
         int toCol = end.getY();
 
-        int X[] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-        int Y[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+        int[] X = new int[]{ 2, 1, -1, -2, -2, -1, 1, 2 };
+        int[] Y = new int[]{ 1, 2, 2, 1, -1, -2, -2, -1 };
 
         // Check if each possible move is valid or not
         for (int i = 0; i < 8; i++) {

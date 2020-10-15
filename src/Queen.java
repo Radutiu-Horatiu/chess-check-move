@@ -1,7 +1,6 @@
 public class Queen extends Piece {
 
-    public Queen(boolean white)
-    {
+    public Queen(boolean white) {
         super(white);
     }
 
